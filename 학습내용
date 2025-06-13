@@ -4,3 +4,7 @@
 2. 프로젝트 생성 cd backend  >>> django-admin startproject config .
 3. DB테이블 생성 >>> python manage.py migrate
 4. 간단한 api 앱 생성 >>> python manage.py startapp api
+
+5. 폴더 + 파일 생성
+    serializers 폴더 >>> category_serializer
+    views 폴더 >>> category_view, hello_view
