@@ -1,14 +1,15 @@
 # config/settings/dev.py
 #개발 전용 설정만 덮어쓴다"는 의미
-from .base import *
-import os
+from .base import *  
+import os #dev_4
 
-DEBUG = True
+DEBUG = False
 
 #ALLOWED_HOSTS = ["example.com", "myapi.com"] 
 #도메인에서 오는 요청만 Django가 처리
 ALLOWED_HOSTS = ["*"]
 
+# dev_4
 # 정적파일 URL 경로
 STATIC_URL = '/static/'
 # collectstatic 명령어로 모이는 폴더 (EC2 내 정적파일 모음 경로)
@@ -20,3 +21,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # STATICFILES_DIRS = [
 #     os.path.join(BASE_DIR, 'static'),
 # ]
+
+# dev_5 경로 조절 주의
+from dotenv import load_dotenv
+
+PARENT_DIR = BASE_DIR.parent  # 예: /app
+
+print('베이스_의 부모',PARENT_DIR)
+load_dotenv(dotenv_path=PARENT_DIR / '.env.prod')  # 또는 '.env.prod' 등
+
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "fallback-secret")
+print('시크릿키',SECRET_KEY)
