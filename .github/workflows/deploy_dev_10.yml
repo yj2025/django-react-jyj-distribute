@@ -6,7 +6,7 @@ on:
       - dev_10_리액트_nginx_배포-2025-06-20
 
 jobs:
-  dev_8_deploy:
+  dev_10_deploy:
     name: Deploy to EC2
     runs-on: ubuntu-latest   
     
