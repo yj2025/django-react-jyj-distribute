@@ -50,7 +50,17 @@ services:
     depends_on:
       - backend
 
-volumes:
-  static:
-  media:
-  db-data:
+# volumes:
+#   static:
+#   media:
+#   db-data:
+
+frontend:
+  build:
+    context: .
+    dockerfile: frontend/Dockerfile
+  ports:
+    - "8080:80"
+  volumes:
+    - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+  # restart: always   # 필요하면 주석 해제
