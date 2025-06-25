@@ -9,7 +9,10 @@ const CategoryPage = () => {
 
     //http://localhost:8000/api/categories/
     getCategories()
-    .then(res => setCategories(res.data))
+    .then(res => {
+        console.log('API 응답:', res.data);
+        setCategories(res.data.results);
+      })
     .catch(err => console.log(err))
 
   }, []);
